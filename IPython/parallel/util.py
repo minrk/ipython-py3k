@@ -101,6 +101,12 @@ class ReverseDict(dict):
 # Functions
 #-----------------------------------------------------------------------------
 
+def ensure_bytes(s):
+    """ensure that an object is bytes"""
+    if not isinstance(s, bytes):
+        s = bytes(s, sys.getdefaultencoding())
+    return s
+
 def validate_url(url):
     """validate a url for zeromq"""
     if not isinstance(url, str):
